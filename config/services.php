@@ -30,4 +30,9 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'sms-pilot' => [
+        'key'         => env('SMS_PILOT_API_KEY'),
+        'sender_name' => env('SMS_PILOT_SENDER_NAME'),
+    ],
+
 ];

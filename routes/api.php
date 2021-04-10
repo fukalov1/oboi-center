@@ -17,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('get-code', [\App\Http\Controllers\MainController::class, 'getCode']);
+Route::post('get-coupon', [\App\Http\Controllers\MainController::class, 'getCoupon']);
+Route::post('send-request-coupon', [\App\Http\Controllers\MainController::class, 'sendRequestCoupon']);

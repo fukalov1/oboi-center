@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4a16c3c541bd99241cab1c21ce8e83ac",
+    "content-hash": "627adb36e7651f064ec29b01a543ac8d",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -57,6 +57,65 @@
                 "stack"
             ],
             "time": "2021-03-11T06:42:03+00:00"
+        },
+        {
+            "name": "avto-dev/smspilot-notifications-laravel",
+            "version": "v2.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/avto-dev/smspilot-notifications-laravel.git",
+                "reference": "9e573fd9d68ccf253dc39e52e40fa445d46cb85e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/avto-dev/smspilot-notifications-laravel/zipball/9e573fd9d68ccf253dc39e52e40fa445d46cb85e",
+                "reference": "9e573fd9d68ccf253dc39e52e40fa445d46cb85e",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "guzzlehttp/guzzle": "^6.0 || ~7.0",
+                "illuminate/contracts": "~6.0 || ~7.0 || ~8.0",
+                "illuminate/notifications": "~6.0 || ~7.0 || ~8.0",
+                "illuminate/support": "~6.0 || ~7.0 || ~8.0",
+                "php": "^7.3 || ^8.0"
+            },
+            "require-dev": {
+                "laravel/laravel": "~6.0 || ~7.0 || ~8.0",
+                "mockery/mockery": "^1.4",
+                "phpstan/phpstan": "~0.12.36",
+                "phpunit/phpunit": "^8.5.4 || ^9.3"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "AvtoDev\\SmsPilotNotifications\\SmsPilotServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "AvtoDev\\SmsPilotNotifications\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "avto-dev",
+                    "homepage": "https://github.com/avto-dev"
+                }
+            ],
+            "description": "Notifications channel for SMS Pilot service",
+            "keywords": [
+                "laravel",
+                "notification",
+                "sms-pilot"
+            ],
+            "time": "2020-12-25T08:42:51+00:00"
         },
         {
             "name": "brick/math",

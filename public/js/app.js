@@ -44,7 +44,9 @@ new Vue({
             phone: '',
             code: '',
             step: 1,
-            error: ''
+            success: true,
+            error: '',
+            showFormCoupon: false
         }
     },
     created() {
@@ -60,11 +62,35 @@ new Vue({
         this.address = this.contacts[0];
     },
     methods: {
-        sendData() {
+        getCode() {
             let data = {fio: this.fio, phone: this.phone};
-            axios.post(`/send/sendsms.php`, data)
+            axios.post(`/api/get-code`, data)
                 .then(response => {
-                    this.step = 2;
+                    this.success = response.data.success;
+                    if (this.success) {
+                        // this.code = response.data.code;
+                        this.step = 2;
+                    }
+                    else {
+                        this.error = response.data.error;
+                    }
+                })
+                .catch(error => {
+                    this.error = 'Что то пошло не так (ಠ_ಠ)';
+                });
+        },
+        getCoupon() {
+            let data = {fio: this.fio, phone: this.phone, code: this.code};
+            axios.post(`/api/get-coupon`, data)
+                .then(response => {
+                    this.success = response.data.success;
+                    if (this.success) {
+                        this.showFormCoupon = false;
+                        window.open('/print-coupon', '_blank');
+                    }
+                    else {
+                        this.error = response.data.error;
+                    }
                 })
                 .catch(error => {
                     this.error = 'Что то пошло не так (ಠ_ಠ)';
@@ -95,10 +121,5 @@ $(document).ready(function() {
     $("#modal_kup").on('click', function (e) {
         if (e.target == this) $("#modal_kup").fadeOut('fast');
     })
-
-    function func() {
-        document.getElementById("modal_kup").style.display = "block";
-    }
-    setTimeout(func, 5000);
 
 });

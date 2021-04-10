@@ -113,6 +113,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/monolog/monolog" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/tinker" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/opis/closure" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/avto-dev/smspilot-notifications-laravel" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

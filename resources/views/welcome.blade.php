@@ -11,14 +11,16 @@
 	<meta name="author" content="Line-decor">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-	<link rel="stylesheet" href="{{ asset('/css/vendor.css') }}">
+	<link rel="stylesheet" href="css/vendor.css">
 
 
 
-	<link rel="stylesheet" href="{{ asset('/css/main.css') }}">
+	<link rel="stylesheet" href="css/main.css">
 
 	<link href='https://fonts.googleapis.com/css?family=Roboto:300,900|Roboto+Condensed:300,700|PT+Sans:700&amp;subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="{{ asset('/css/landing.css') }}">
+    <link rel="stylesheet" href="landing.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+    <script src="https://unpkg.com/vue"></script>
 
 	</head>
 	<body>
@@ -37,18 +39,18 @@
                                 <option :value="item"
                                         class="line1"
                                         v-for="(item, index) in contacts" :key="index">
-                                    @{{ item.name }}
+                                    {{ item.name }}
                                 </option>
                             </select>
 							<div class="line2" v-for="(item, index) in address.data" :key="index">
-                                @{{ item.address }}
+                                {{ item.address }}
                             </div>
 						</div>
 						<div class="contact">
 							<!--<a href="#callback" class="fancybox button">онлайн-заявка</a>--><br/>
 							<a :href="'tel:'+item.phone" class="tel"
                                v-for="(item, index) in address.data" :key="index">
-                                @{{ item.phone }}
+                                {{ item.phone }}
                             </a>
 						</div>
 					</div>
@@ -94,7 +96,7 @@
 					<div class="sect-title">Почему мы? </div>
 					<div class="top-row">
 						<div class="item">
-							<img src="{{asset('/images/s2-i1.png')}}" alt="">
+							<img src="img/s2-i1.png" alt="">
 							<div class="title">
 								Офлайн витрина
 							</div>
@@ -103,7 +105,7 @@
 							</div>
 						</div>
 						<div class="item">
-							<img src="{{asset('/images/s2-i2.png')}}" alt="">
+							<img src="img/s2-i2.png" alt="">
 							<div class="title">
 								Постоянное наличие товара на складе
 							</div>
@@ -113,7 +115,7 @@
 							</div>
 						</div>
 						<div class="item">
-							<img src="{{asset('/images/s2-i3.png')}}" alt="">
+							<img src="img/s2-i3.png" alt="">
 							<div class="title">Ассортимент обоев </div>
 							<div class="text">
 								от бумажных обоев до виниловых обоев на флизелиновой основе от известных торговых марок
@@ -177,75 +179,75 @@
 				<div class="row">
 					<div class="item">
 						<div class="image">
-							<img src="{{asset('/images/s4i1.jpg')}}" alt="">
+							<img src="img/s4i1.jpg" alt="">
 							<div class="title" style="padding-left: 0px;"></div>
 						</div>
 
 					</div>
 					<div class="item">
 						<div class="image">
-							<img src="{{asset('/images/s4i2.jpg')}}" alt="">
+							<img src="img/s4i2.jpg" alt="">
 							<div class="title" style="padding-left: 0px;"></div>
 						</div>
 
 					</div>
 					<div class="item">
 						<div class="image">
-							<img src="{{asset('/images/s4i3.jpg')}}" alt="">
+							<img src="img/s4i3.jpg" alt="">
 							<div class="title" style="padding-left: 0px;"></div>
 						</div>
 					</div>
 					<div class="item">
 						<div class="image">
-							<img src="{{asset('/images/s4i4.jpg')}}" alt="">
+							<img src="img/s4i4.jpg" alt="">
 							<div class="title" style="padding-left: 0px;"></div>
 						</div>
 					</div>
 					<div class="item">
 						<div class="image">
-							<img src="{{asset('/images/s4i5.jpg')}}" alt="">
+							<img src="img/s4i5.jpg" alt="">
 							<div class="title" style="padding-left: 0px;"></div>
 						</div>
 					</div>
 					<div class="item">
 						<div class="image">
-							<img src="{{asset('/images/s4i6.jpg')}}" alt="">
+							<img src="img/s4i6.jpg" alt="">
 							<div class="title" style="padding-left: 0px;"></div>
 						</div>
 					</div>
 					<div class="item">
 						<div class="image">
-							<img src="{{asset('/images/s4i7.jpg')}}" alt="">
+							<img src="img/s4i7.jpg" alt="">
 							<div class="title" style="padding-left: 0px;"></div>
 						</div>
 					</div>
 					<div class="item">
 						<div class="image">
-							<img src="{{asset('/images/s4i8.jpg')}}" alt="">
+							<img src="img/s4i8.jpg" alt="">
 							<div class="title" style="padding-left: 0px;"></div>
 						</div>
 					</div>
 					<div class="item">
 						<div class="image">
-							<img src="{{asset('/images/s4i9.jpg')}}" alt="">
+							<img src="img/s4i9.jpg" alt="">
 							<div class="title" style="padding-left: 0px;"></div>
 						</div>
 					</div>
 					<div class="item">
 						<div class="image">
-							<img src="{{asset('/images/s4i10.jpg')}}" alt="">
+							<img src="img/s4i10.jpg" alt="">
 							<div class="title" style="padding-left: 0px;"></div>
 						</div>
 					</div>
 					<div class="item">
 						<div class="image">
-							<img src="{{asset('/images/s4i11.jpg')}}" alt="">
+							<img src="img/s4i11.jpg" alt="">
 							<div class="title" style="padding-left: 0px;"></div>
 						</div>
 					</div>
 					<div class="item">
 						<div class="image">
-							<img src="{{asset('/images/s4i12.jpg')}}" alt="">
+							<img src="img/s4i12.jpg" alt="">
 							<div class="title" style="padding-left: 0px;"></div>
 						</div>
 					</div>
@@ -295,19 +297,19 @@
 						</div>
 						<div class="row">
 							<div class="item">
-								<div class="img"><img src="{{asset('/images/s6i4.jpg')}}" alt=""></div>
+								<div class="img"><img src="img/s6i4.jpg" alt=""></div>
 								<div class="text">Плинтусы</div>
 							</div>
 							<div class="item">
-								<div class="img"><img src="{{asset('/images/s6i2.jpg')}}" alt=""></div>
+								<div class="img"><img src="img/s6i2.jpg" alt=""></div>
 								<div class="text">Люстры</div>
 							</div>
 							<div class="item">
-								<div class="img"><img src="{{asset('/images/s6i1.jpg')}}" alt=""></div>
+								<div class="img"><img src="img/s6i1.jpg" alt=""></div>
 								<div class="text">Картины</div>
 							</div>
 							<div class="item">
-								<div class="img"><img src="{{asset('/images/s6i3.jpg')}}" alt=""></div>
+								<div class="img"><img src="img/s6i3.jpg" alt=""></div>
 								<div class="text">Инструменты</div>
 							</div>
 						</div>
@@ -341,8 +343,8 @@
 		<div id="s-map" class="social">
     		<div class="social__title">Мы в соцсетях.</div>
     		<div class="social-row">
-    			<a href="https://vk.com/oboi_centre" class="social__btn" target="_blank"><img src="{{asset('/images/icon-soc-vk.png')}}" width="70" height="70" alt="image"></a>
-    			<a href="https://www.instagram.com/oboi_centre/?r=nametaghttps://instagram.com/oboi_centre?r=nametag" class="social__btn" target="_blank"><img src="{{asset('/images/icon-soc-inst.png')}}" width="70" height="70" alt="image"></a>
+    			<a href="https://vk.com/oboi_centre" class="social__btn" target="_blank"><img src="img/icon-soc-vk.png" width="70" height="70" alt="image"></a>
+    			<a href="https://www.instagram.com/oboi_centre/?r=nametaghttps://instagram.com/oboi_centre?r=nametag" class="social__btn" target="_blank"><img src="img/icon-soc-inst.png" width="70" height="70" alt="image"></a>
     		</div>
 <br/>
 	<div class="social__title">Подпишитесь и узнавайте все новости первыми!</div>
@@ -393,18 +395,18 @@
                                 <option :value="item"
                                         class="line1"
                                         v-for="(item, index) in contacts" :key="index">
-                                    @{{ item.name }}
+                                    {{ item.name }}
                                 </option>
                             </select>
                             <div class="line2" v-for="(item, index) in address.data" :key="index">
-                                @{{ item.address }}
+                                {{ item.address }}
                             </div>
 						</div>
 						<div class="contact">
 							<a href="#callback" class="fancybox button">онлайн-заявка</a>
                             <a :href="'tel:'+item.phone" class="tel"
                                v-for="(item, index) in address.data" :key="index">
-                                @{{ item.phone }}
+                                {{ item.phone }}
                             </a>
 						</div>
 					</div>
@@ -413,7 +415,9 @@
 
 <div id="fade"></div>
 
-<div id="modal_kup" style="display: none; background: rgba(0, 0, 0, 0.5);position: fixed;width: 100%;height: 100%;top: 0px;">
+<div id="modal_kup"
+
+     style="display: none; background: rgba(0, 0, 0, 0.5);position: fixed;width: 100%;height: 100%;top: 0px;">
 	<div style="background: #fff;width: 700px;height: 450px;border-radius: 5px; margin: 12% auto;">
 
 	    <div class="modal-container">
@@ -441,7 +445,7 @@
                 <input class="input-text" v-model="code" placeholder="введите код из смс" required="" type="text" />
             </div>
 
-            <div class="error-message">@{{ error }}</div>
+            <div class="error-message">{{ error }}</div>
 
             <input class="get-code button" @click="sendData" type="submit" value="Отправить" />
 
@@ -477,9 +481,9 @@
 </div>
 
 
-	<script src="{{asset("/js/vendor.js")}}"></script>
-	<script src="{{asset("/js/main.js")}}"></script>
-    <script src="{{asset("/js/app.js")}}"></script>
+	<script src="scripts/vendor.js"></script>
+	<script src="scripts/main.js"></script>
+    <script src="scripts/app.js"></script>
 	<script type="text/javascript"
             charset="utf-8" async
             src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Aa0558457aae1c7bfcd1b26b1a45923fdeb81bf9ef6d453a88166293aa36bbaaf&amp;width=100%&amp;height=350&amp;lang=ru_RU&amp;scroll=true&amp;id=map">
