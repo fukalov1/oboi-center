@@ -20,4 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('get-code', [\App\Http\Controllers\MainController::class, 'getCode']);
 Route::post('get-coupon', [\App\Http\Controllers\MainController::class, 'getCoupon']);
+Route::post('get-callback', [\App\Http\Controllers\MainController::class, 'getCallback']);
 Route::post('send-request-coupon', [\App\Http\Controllers\MainController::class, 'sendRequestCoupon']);

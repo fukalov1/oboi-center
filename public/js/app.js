@@ -46,7 +46,11 @@ new Vue({
             step: 1,
             success: true,
             error: '',
-            showFormCoupon: false
+            showFormCoupon: false,
+            message: null,
+            send_callback: false,
+            callback_name: null,
+            callback_phone: null
         }
     },
     created() {
@@ -78,6 +82,25 @@ new Vue({
                 .catch(error => {
                     this.error = 'Что то пошло не так (ಠ_ಠ)';
                 });
+        },
+        getCallback() {
+            let data = {fio: this.callback_name, phone: this.callback_phone};
+            axios.post(`/api/get-callback`, data)
+                .then(response => {
+                    this.success = response.data.success;
+                    if (this.success) {
+                        this.message = response.data.message;
+                        this.step = 2;
+                    }
+                    else {
+                        this.error = response.data.error;
+                    }
+                })
+                .catch(error => {
+                    this.error = 'Что то пошло не так (ಠ_ಠ)';
+                });
+            this.send_callback = true;
+            return false;
         },
         getCoupon() {
             let data = {fio: this.fio, phone: this.phone, code: this.code};

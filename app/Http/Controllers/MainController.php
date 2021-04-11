@@ -6,6 +6,7 @@ use App\Models\Coupon;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use AvtoDev\SmsPilotNotifications\Messages\SmsPilotMessage;
+use Illuminate\Support\Facades\Mail;
 
 class MainController extends Controller
 {
@@ -53,9 +54,41 @@ class MainController extends Controller
         return json_encode($data);
     }
 
-    public function getRequestCoupon(Request $request)
+    public function getCallback(Request $request)
     {
+        $validate = $this->validateData($request);
 
+        if ($validate===false) {
+            $data = [
+                'success' => false,
+                'code' => null,
+                'error' => 'Нет данных',
+            ];
+        }
+        else  {
+            try {
+                $user_data = ['fio' => $this->fio, 'phone' => $this->phone];
+                Mail::send('emails.sendform', ['data' => $user_data], function ($message) use ($user_data) {
+
+                    $email = 'oboi-center@yandex.ru';
+                    $message->from($email, ' ', 'Обои-центр');
+                    $message->to($email)->subject('заказ обратного звонка  с сайта oboi-center.ru');
+                });
+                $data = [
+                    'success' => true,
+                    'message' => 'Успешно! Ожидайте звонка от менеджера.',
+                    'error' => null
+                ];
+            }
+            catch (\Throwable $exception) {
+                $data = [
+                    'success' => true,
+                    'message' => 'Ошибка! Заказ не отправлен.',
+                    'error' => $exception->getMessage()
+                ];
+            }
+        }
+        return json_encode($data);
     }
 
     public function getCoupon(Request $request)

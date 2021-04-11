@@ -356,22 +356,31 @@
 				<!-- <p>
 					Укажите свои контактные данные<br/> и мы перезвоним Вам в течении 30  минут
 				</p> -->
-				<form class="form-callback" method="post" action="send/send.php">
-					<input class="input-text" type="text" name="name" placeholder="Имя" required><br/>
-					<input class="input-text" type="tel" name="phone" placeholder="Телефон" required><br/>
-					<input type="submit" value="Отправить" class="button">
+				<form class="form-callback" v-if="send_callback==false">
+					<input class="input-text" type="text" v-model="callback_name" placeholder="Имя" required><br/>
+					<input class="input-text" type="tel" v-model="callback_phone" placeholder="Телефон" required><br/>
+					<button
+                        type="button"
+                        @click="getCallback"
+                        class="button">
+                        Отправить
+                    </button>
 				</form>
+                <h3 v-else>
+                    @{{ message }}
+                    @{{ error }}
+                </h3>
 			</div>
 			<div class="modal-zakaz" id="get-cupon" >
 				<h2>Получить купон</h2>
 				<!-- <p>
 					Укажите свои контактные данные<br/> и мы перезвоним Вам в течении 30  минут
 				</p> -->
-				<form class="form-cupon" method="post" action="send/send.php">
+				<form class="form-cupon">
 					<input class="input-text" type="text" name="name" placeholder="Имя" required><br/>
 					<input class="input-text" type="email" name="email" placeholder="E-mail" required><br/>
 					<input class="input-text" type="phone" name="phone" placeholder="Телефон" required><br/>
-					<input type="submit" value="Отправить" class="button">
+					<input type="submit"  value="Отправить" class="button">
 				</form>
 			</div>
 			<div id="modal-thanks" class="modal-zakaz popup-uspeh">
@@ -403,7 +412,7 @@
                             </div>
 						</div>
 						<div class="contact">
-							<a href="#callback" class="fancybox button">онлайн-заявка</a>
+							<a href="#callback" class="fancybox button">обратный звонок</a>
                             <a :href="'tel:'+item.phone" class="tel"
                                v-for="(item, index) in address.data" :key="index">
                                 @{{ item.phone }}
@@ -488,7 +497,6 @@
 </div>
 -->
 
-</div>
 
 
 	<script src="{{ asset('/js/vendor.js') }}"></script>
