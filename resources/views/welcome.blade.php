@@ -11,14 +11,14 @@
 	<meta name="author" content="Line-decor">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-	<link rel="stylesheet" href="css/vendor.css">
+	<link rel="stylesheet" href="{{ asset('/css/vendor.css') }}">
 
 
 
-	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="{{ asset('/css/main.css') }}">
 
 	<link href='https://fonts.googleapis.com/css?family=Roboto:300,900|Roboto+Condensed:300,700|PT+Sans:700&amp;subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="landing.css">
+    <link rel="stylesheet" href="{{ asset('/css/landing.css') }}">
     <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js') }}"></script>
     <script src="{{ asset('https://unpkg.com/vue') }}"></script>
 
@@ -357,14 +357,11 @@
 					Укажите свои контактные данные<br/> и мы перезвоним Вам в течении 30  минут
 				</p> -->
 				<form class="form-callback" v-if="send_callback==false">
-					<input class="input-text" type="text" v-model="callback_name" placeholder="Имя" required><br/>
-					<input class="input-text" type="tel" v-model="callback_phone" placeholder="Телефон" required><br/>
-					<button
-                        type="button"
-                        @click="getCallback"
-                        class="button">
+					<input class="input-text" type="text" v-model="callback_name" name="callback_name" placeholder="Имя" required><br/>
+					<input class="input-text" type="tel" v-model="callback_phone" name="callback_phone" placeholder="Телефон" required><br/>
+                    <div @click="getCallback" class="button">
                         Отправить
-                    </button>
+                    </div>
 				</form>
                 <h3 v-else>
                     @{{ message }}
